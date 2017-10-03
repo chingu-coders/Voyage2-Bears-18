@@ -16,10 +16,10 @@ Give examples
 
 ### Usage
 
-Install the node modules:
+Install the node modules:   
 `$ npm install`
 
-Run the local server:
+Run the local server:    
 `$ npm run dev`
 
 ## Running the tests
