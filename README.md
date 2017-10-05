@@ -6,25 +6,18 @@ Jobbatical is a website that allows visitors to apply for jobs and for companies
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Usage
+## Usage
 
 Install the node modules:   
 `$ npm install`
 
 Run the local server:    
-`$ npm run dev`
+`$ npm start`
 
 ## Running the tests
 
-TBD
+`$ npm test`
 
 ### Break down into end to end tests
 
