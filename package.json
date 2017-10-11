@@ -12,7 +12,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint-watch": "nodemon **.js --exec \"eslint . --ext=jsx --ext=js\""
+    "lint-watch": "nodemon **.js --exec \"eslint . --ext=jsx --ext=js\"",
     "lint": "eslint . --ext=jsx --ext=js"
   },
   "devDependencies": {
