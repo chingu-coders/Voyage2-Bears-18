@@ -19,6 +19,12 @@ Run the local server:
 
 `$ npm test`
 
+Run automated tests for linting:
+ `$ npm run lint-watch`
+
+Lint all files:
+ `$ npm lint-all`
+
 ### Break down into end to end tests
 
 TBD
@@ -34,8 +40,8 @@ TBD
 ## Built With
 
 * [React](https://reactjs.org/) - The web framework used
-* [Nodejs](https://nodejs.org/en/) - Dependency Management
-* [Firebase](https://firebase.google.com/) - Used to generate RSS Feeds
+* [Nodejs](https://nodejs.org/en/) - JavaScript runtime for the backend 
+* [Firebase](https://firebase.google.com/) - Real-time Database
 
 ## Contributing
 
