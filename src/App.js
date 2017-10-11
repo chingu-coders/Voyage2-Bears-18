@@ -1,8 +1,43 @@
 import React, { Component } from 'react';
 import './App.css';
+import { base } from './base'
+
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      usersList: [],
+    }
+  }
+
+
+  componentWillMount() {
+    this.usersListRef = base.syncState('usersList', {
+      context: this,
+      state: 'usersList',
+      asArray: true,
+    })
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.usersListRef)
+  }
+
   render() {
+    const usersList = this.state.usersList.map((user, key) => {
+      return (
+        <div key={key}>
+          <h3>{user.name}</h3>
+          <ul style={{ listStyle: 'none', }}>
+            <li>id: {user.id}</li>
+            <li>age: {user.age}</li>
+            <li>country: {user.country}</li>
+          </ul>
+        </div>
+      )
+    })
+
     return (
       <div className="App">
         <header className="App-header">
@@ -11,12 +46,9 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <p>Our components should go to 'components' folder.
-        </p>
-        <p>
-          Each component should have separate css file with identical name in the same folder (ex. NewComponent.js have NewComponent.css).
-          App.js is a body of our clone, here we import and use (render) new components.
-        </p>
+        
+        <h3>Users in firebase:</h3>
+        {usersList}
       </div>
     );
   }
