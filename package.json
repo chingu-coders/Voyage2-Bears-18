@@ -9,11 +9,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "test": "./node_modules/.bin/eslint .",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint-watch": "nodemon **.js --exec \"eslint . --ext=jsx --ext=js\"",
     "lint": "eslint . --ext=jsx --ext=js"
+    "react-test": "react-scripts test --env=jsdom",
   },
   "devDependencies": {
     "eslint": "^4.8.0",
