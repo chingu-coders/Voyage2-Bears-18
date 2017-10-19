@@ -1,22 +1,15 @@
 const admin = require('firebase-admin');
+const secret = require('./../credentials/server');
 
-
-const serviceAccount = require('./skey.json');
-
-const createEmail = () => {
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: 'https://voyage2-bears18.firebaseio.com',
-  });
-
+admin.initializeApp({
+  credential: admin.credential.cert(secret),
+  databaseURL: 'https://voyage2-bears18.firebaseio.com/',
+});
+module.exports = (user) => {
   admin.auth().createUser({
-    email: 'user@example.com',
-    emailVerified: false,
-    phoneNumber: '+11234567890',
-    password: 'secretPassword',
-    displayName: 'John Doe',
-    photoURL: 'http://www.example.com/12345678/photo.png',
-    disabled: false,
+    email: user.email,
+    password: user.password,
+    displayName: user.name,
   })
     .then((userRecord) => {
       // See the UserRecord reference doc for the contents of userRecord.
@@ -27,5 +20,3 @@ const createEmail = () => {
     });
 };
 
-
-export default createEmail;
