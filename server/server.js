@@ -1,5 +1,3 @@
-// const  createEmail = require('./credentials/client');
-
 const express = require('express');
 const next = require('next');
 const session = require('express-session');
@@ -14,9 +12,8 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 const secret = require('./credentials/server');
-
-
 const createEmail = require('./methods/createUserEmail');
+
 const firebase = admin.initializeApp({
   credential: admin.credential.cert(secret),
   databaseURL: 'https://voyage2-bears18.firebaseio.com/',
@@ -48,7 +45,6 @@ app.prepare()
       if (!req.body) return res.sendStatus(400);
 
       // const token = req.body.token;
-      console.log(req);
       createEmail(req.body);
     });
 
