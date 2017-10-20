@@ -1,3 +1,5 @@
+// const  createEmail = require('./credentials/client');
+
 const express = require('express');
 const next = require('next');
 const session = require('express-session');
@@ -13,16 +15,20 @@ const handle = app.getRequestHandler();
 
 const secret = require('./credentials/server');
 
+
+const createEmail = require('./methods/createUserEmail');
 const firebase = admin.initializeApp({
   credential: admin.credential.cert(secret),
   databaseURL: 'https://voyage2-bears18.firebaseio.com/',
 }, 'server');
+
 
 app.prepare()
   .then(() => {
     const server = express();
 
     server.use(bodyParser.json());
+    server.use(bodyParser.urlencoded({ extended: true }));
     server.use(session({
       secret: 'the message',
       saveUninitialized: true,
@@ -41,21 +47,9 @@ app.prepare()
     server.post('/api/register', (req, res) => {
       if (!req.body) return res.sendStatus(400);
 
-      const token = req.body.token;
-      firebase.auth().createUser({
-        email: 'user@example.com',
-        emailVerified: false,
-        phoneNumber: '+11234567890',
-        password: 'secretPassword',
-        displayName: 'John Doe',
-        photoURL: 'http://www.example.com/12345678/photo.png',
-        disabled: false,
-      }).then((userRecord) => {
-        // See the UserRecord reference doc for the contents of userRecord.
-        console.log('Successfully created new user:', userRecord.uid);
-      }).catch((error) => {
-        console.log('Error creating new user:', error);
-      });
+      // const token = req.body.token;
+      console.log(req);
+      createEmail(req.body);
     });
 
     server.get('/', (req, res) => app.render(req, res, '/index', req.query));
