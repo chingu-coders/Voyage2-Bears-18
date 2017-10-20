@@ -13,7 +13,7 @@ Install the node modules:
 `$ npm install`
 
 Run the local server:    
-`$ npm start`
+`$ npm run dev`
 
 ## Running the tests
 
