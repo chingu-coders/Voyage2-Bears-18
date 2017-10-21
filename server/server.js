@@ -49,7 +49,8 @@ app.prepare()
     server.post('/api/register', (req, res) => {
       if (!req.body) return res.sendStatus(400);
 
-      createEmail(req.body);
+      createEmail(req.body, res);
+      // res.sendStatus(200);
     });
 
     // ## ROUTING

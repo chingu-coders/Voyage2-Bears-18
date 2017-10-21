@@ -6,7 +6,7 @@ admin.initializeApp({
   databaseURL: 'https://voyage2-bears18.firebaseio.com/',
 });
 
-module.exports = (user) => {
+module.exports = (user, res) => {
   admin.auth().createUser({
     email: user.email,
     password: user.password,
@@ -15,9 +15,11 @@ module.exports = (user) => {
     .then((userRecord) => {
       // See the UserRecord reference doc for the contents of userRecord.
       console.log('Successfully created new user:', userRecord.uid);
+      res.sendStatus(200);
     })
     .catch((error) => {
       console.log('Error creating new user:', error);
+      res.sendStatus(400);
     });
 };
 
