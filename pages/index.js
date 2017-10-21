@@ -14,6 +14,7 @@ export default class Index extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  // Handle typing in the form with React (Updating state)
   handleChange(event) {
     this.setState({
       event,
