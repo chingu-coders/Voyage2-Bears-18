@@ -12,8 +12,14 @@ These instructions will get you a copy of the project up and running on your loc
 Install the node modules:   
 `$ npm install`
 
+Enter your Firebase API Credentials:    
+`$ python client.py`
+
+Enter your Firebase ServiceKey Credentials:    
+`$ python server.py`
+
 Run the local server:    
-`$ npm start`
+`$ npm run dev`
 
 ## Running the tests
 

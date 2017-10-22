@@ -3,15 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "firebase": "^4.5.1",
+    "firebase-admin": "^5.4.2",
+    "isomorphic-fetch": "^2.2.1",
+    "next": "^4.0.4",
     "re-base": "^3.0.5",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "session-file-store": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "test": "./node_modules/.bin/eslint .",
-    "build": "react-scripts build",
+    "dev": "node server/server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js",
     "eject": "react-scripts eject",
     "lint-watch": "nodemon **.js --exec \"eslint . --ext=jsx --ext=js\"",
     "lint": "eslint . --ext=jsx --ext=js",
