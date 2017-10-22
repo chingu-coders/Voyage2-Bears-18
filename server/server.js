@@ -24,8 +24,11 @@ app.prepare()
   .then(() => {
     const server = express();
 
+    // Functions to populate req.body
     server.use(bodyParser.json());
     server.use(bodyParser.urlencoded({ extended: true }));
+
+    // Session configuration
     server.use(session({
       secret: 'the message',
       saveUninitialized: true,
@@ -36,20 +39,24 @@ app.prepare()
       cookie: { maxAge: 604800000 },
     }));
 
+    // Implmenting firebase in Next.js
     server.use((req, res, next) => {
       req.firebaseServer = firebase;
       next();
     });
 
+    // POST Request for 'Sign Up' (Name/Email/Password)
     server.post('/api/register', (req, res) => {
       if (!req.body) return res.sendStatus(400);
 
-      // const token = req.body.token;
       createEmail(req.body);
     });
 
+    // ## ROUTING
+    // server.get('PATH', (req, res) => app.render(req, res, 'FILENAME', req.query))
     server.get('/', (req, res) => app.render(req, res, '/index', req.query));
 
+    // Renders pages according to filename
     server.get('*', (req, res) => handle(req, res));
 
     server.listen(port, () => {

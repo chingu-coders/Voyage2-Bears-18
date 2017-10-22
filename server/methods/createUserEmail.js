@@ -5,6 +5,7 @@ admin.initializeApp({
   credential: admin.credential.cert(secret),
   databaseURL: 'https://voyage2-bears18.firebaseio.com/',
 });
+
 module.exports = (user) => {
   admin.auth().createUser({
     email: user.email,
