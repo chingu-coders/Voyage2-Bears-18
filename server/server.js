@@ -50,7 +50,6 @@ app.prepare()
       if (!req.body) return res.sendStatus(400);
 
       createEmail(req.body, res);
-      // res.sendStatus(200);
     });
 
     // ## ROUTING
