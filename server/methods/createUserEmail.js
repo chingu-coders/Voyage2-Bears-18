@@ -15,11 +15,11 @@ module.exports = (user, res) => {
     .then((userRecord) => {
       // See the UserRecord reference doc for the contents of userRecord.
       console.log('Successfully created new user:', userRecord.uid);
-      res.sendStatus(200);
+      res.status(200).redirect('/profile');
     })
     .catch((error) => {
       console.log('Error creating new user:', error);
-      res.sendStatus(400);
+      res.status(400);
     });
 };
 
