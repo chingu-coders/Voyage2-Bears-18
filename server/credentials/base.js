@@ -9,7 +9,9 @@ const config = {
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
 };
+
 const app = firebase.initializeApp(config);
+// const app = !firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
 const base = Rebase.createClass(app.database());
 
-export { base };
+export default { base };

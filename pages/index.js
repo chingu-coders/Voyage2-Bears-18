@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import base from '../server/credentials/base';
 import 'isomorphic-fetch';
 
 export default class Index extends Component {
