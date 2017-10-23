@@ -9,6 +9,7 @@
     "firebase": "^4.5.1",
     "firebase-admin": "^5.4.2",
     "isomorphic-fetch": "^2.2.1",
+    "material-ui": "^1.0.0-beta.17",
     "next": "^4.0.4",
     "re-base": "^3.0.5",
     "react": "^16.0.0",
@@ -26,8 +27,8 @@
     "react-test": "react-scripts test --env=jsdom"
   },
   "devDependencies": {
-    "eslint": "^4.8.0",
-    "eslint-config-airbnb": "^16.0.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",

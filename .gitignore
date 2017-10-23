@@ -4,6 +4,7 @@
 
 # dependencies
 /node_modules
+./next
 
 # testing
 /coverage
@@ -24,4 +25,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # sensitive data
-/server/credentials/
+/server/credentials

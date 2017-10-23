@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
-import firebase from '../server/credentials/client';
 
 export default class Index extends Component {
   constructor(props) {
