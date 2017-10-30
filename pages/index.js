@@ -1,62 +1,76 @@
+/* eslint-disable flowtype/require-valid-file-annotation */
+
 import React, { Component } from 'react';
-import 'isomorphic-fetch';
+import PropTypes from 'prop-types';
+import Button from 'material-ui/Button';
+import Dialog, {
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+} from 'material-ui/Dialog';
+import Typography from 'material-ui/Typography';
+import { withStyles } from 'material-ui/styles';
+import withRoot from '../components/withRoot';
+import App from '../components/App';
+import AddUser from '../components/AddUser';
 
-export default class Index extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      name: '',
-      password: '',
-    };
+const styles = {
+  root: {
+    textAlign: 'center',
+    paddingTop: 200,
+  },
+};
 
-    this.handleChange = this.handleChange.bind(this);
-  }
+class Index extends Component {
+  state = {
+    open: false,
+  };
 
-  // Handle typing in the form with React (Updating state)
-  handleChange(event) {
+  handleRequestClose = () => {
     this.setState({
-      event,
-      ...event,
+      open: false,
     });
-  }
+  };
+
+  handleClick = () => {
+    this.setState({
+      open: true,
+    });
+  };
 
   render() {
-    /*eslint-disable*/
     return (
-      <div>
-        <form action='/api/register' method='POST'>
-          <div>
-            <input
-              type={'text'}
-              name='name'
-              onChange={e => this.handleChange({ name: e.target.value })}
-              value={this.state.name}
-            />
-          </div>
-
-          <div>
-            <input type={'email'}
-              name='email'
-              onChange={e => this.handleChange({ email: e.target.value })}
-              value={this.state.email}
-            />
-          </div>
-
-          <div>
-            <input type={'password'}
-              name='password'
-              onChange={e => this.handleChange({ password: e.target.value })}
-              value={this.state.password}
-            />
-          </div>
-
-          <div>
-            <button type='submit'>SignUp</button>
-          </div>
-        </form>
+      <div className={this.props.classes.root}>
+        <Dialog open={this.state.open} onRequestClose={this.handleRequestClose}>
+          <DialogTitle>Super Secret Password</DialogTitle>
+          <DialogContent>
+            <DialogContentText>1-2-3-4-5</DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button color="primary" onClick={this.handleRequestClose}>
+              OK
+            </Button>
+          </DialogActions>
+        </Dialog>
+        <Typography type="display1" gutterBottom>
+          Material-UI
+        </Typography>
+        <Typography type="subheading" gutterBottom>
+          example project
+        </Typography>
+        <Button raised color="accent" onClick={this.handleClick}>
+          Super Secret Password
+        </Button>
+        <AddUser />
+        <App />
       </div>
     );
   }
 }
 
+Index.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withRoot(withStyles(styles)(Index));
