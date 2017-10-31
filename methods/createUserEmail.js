@@ -1,5 +1,5 @@
 const admin = require('firebase-admin');
-const secret = require('./../credentials/server');
+const secret = require('../credentials/server');
 
 admin.initializeApp({
   credential: admin.credential.cert(secret),
@@ -7,11 +7,13 @@ admin.initializeApp({
 });
 
 module.exports = (user, res) => {
-  admin.auth().createUser({
-    email: user.email,
-    password: user.password,
-    displayName: user.name,
-  })
+  admin
+    .auth()
+    .createUser({
+      email: user.email,
+      password: user.password,
+      displayName: user.name,
+    })
     .then((userRecord) => {
       // See the UserRecord reference doc for the contents of userRecord.
       console.log('Successfully created new user:', userRecord.uid);
@@ -22,4 +24,3 @@ module.exports = (user, res) => {
       res.status(400);
     });
 };
-
