@@ -13,7 +13,7 @@ import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 import withRoot from '../components/withRoot';
 import App from '../components/App';
-import AddUser from '../components/AddUser';
+import AddUserDialog from '../components/AddUserDialog';
 
 const styles = {
   root: {
@@ -42,28 +42,16 @@ class Index extends Component {
   render() {
     return (
       <div className={this.props.classes.root}>
-        <Dialog open={this.state.open} onRequestClose={this.handleRequestClose}>
-          <DialogTitle>Super Secret Password</DialogTitle>
-          <DialogContent>
-            <DialogContentText>1-2-3-4-5</DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button color="primary" onClick={this.handleRequestClose}>
-              OK
-            </Button>
-          </DialogActions>
-        </Dialog>
         <Typography type="display1" gutterBottom>
-          Material-UI
+          Jobbatical Clon
         </Typography>
         <Typography type="subheading" gutterBottom>
-          example project
+          Create an account
         </Typography>
+        <AddUserDialog open={this.state.open} onRequestClose={this.handleRequestClose} />
         <Button raised color="accent" onClick={this.handleClick}>
-          Super Secret Password
+          SignUp
         </Button>
-        <AddUser />
-        <App />
       </div>
     );
   }
@@ -74,3 +62,17 @@ Index.propTypes = {
 };
 
 export default withRoot(withStyles(styles)(Index));
+
+{
+  /* <Dialog open={this.state.open} onRequestClose={this.handleRequestClose}>
+<DialogTitle>Super Secret Password</DialogTitle>
+<DialogContent>
+  <DialogContentText>1-2-3-4-5</DialogContentText>
+</DialogContent>
+<DialogActions>
+  <Button color="primary" onClick={this.handleRequestClose}>
+    OK
+  </Button>
+</DialogActions>
+</Dialog> */
+}
