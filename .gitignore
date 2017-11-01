@@ -25,4 +25,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # sensitive data
-/server/credentials
+/credentials/client.js
+/credentials/server.js
