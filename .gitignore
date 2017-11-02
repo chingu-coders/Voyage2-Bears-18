@@ -25,4 +25,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # sensitive data
+/credentials/server.js
 .env
