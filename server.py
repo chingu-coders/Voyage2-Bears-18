@@ -1,6 +1,6 @@
 print('Enter your server-side credentials')
 
-with open ('./server/credentials/server.js', "w+") as f:
+with open ('./credentials/server.js', "w+") as f:
     f.write("module.exports = {\n")
     f.write("  type: '"  + input('type: '))
     f.write("',\n  project_id: '" + input('project id: '))
@@ -15,6 +15,6 @@ with open ('./server/credentials/server.js', "w+") as f:
     f.write("',\n};\n")
 f.close
 
-print('File created in ./server/credentials/')
+print('File created in ./credentials/')
 
     

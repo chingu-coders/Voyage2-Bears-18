@@ -1,6 +1,6 @@
 print('Enter your client-side credentials:')
 
-with open('./server/credentials/client.js', 'w+') as f:
+with open('./credentials/client.js', 'w+') as f:
     f.write("const fb = require('firebase');\n\n")
     f.write("const config = {\n")
     f.write("  apiKey: '" + input("apiKey: "))
@@ -13,4 +13,4 @@ with open('./server/credentials/client.js', 'w+') as f:
     f.write("""const firebase = !fb.apps.length ? fb.initializeApp(config) : fb.app();\nmodule.exports = {\n  firebase,\n};\n""")
 f.close
 
-print('File created in ./server/credentials/')
+print('File created in ./credentials/')
