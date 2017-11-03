@@ -12,12 +12,24 @@ These instructions will get you a copy of the project up and running on your loc
 Install the node modules:   
 `$ npm install`
 
+Enter your Firebase API Credentials:    
+`$ python client.py`
+
+Enter your Firebase ServiceKey Credentials:    
+`$ python server.py`
+
 Run the local server:    
-`$ npm start`
+`$ npm run dev`
 
 ## Running the tests
 
 `$ npm test`
+
+Run automated tests for linting:
+ `$ npm run lint-watch`
+
+Lint all files:
+ `$ npm lint-all`
 
 ### Break down into end to end tests
 
@@ -34,8 +46,8 @@ TBD
 ## Built With
 
 * [React](https://reactjs.org/) - The web framework used
-* [Nodejs](https://nodejs.org/en/) - Dependency Management
-* [Firebase](https://firebase.google.com/) - Used to generate RSS Feeds
+* [Nodejs](https://nodejs.org/en/) - JavaScript runtime for the backend 
+* [Firebase](https://firebase.google.com/) - Real-time Database
 
 ## Contributing
 
